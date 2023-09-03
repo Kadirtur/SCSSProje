@@ -1,0 +1,38 @@
+//farklı columl ve ara boşluğu dinamik değiştirebileceğimiz mixin
+@mixin grid($columns,$gap: 0px) {
+  display: grid;
+  grid-gap: $gap;
+  grid-template-columns: repeat($columns, 1fr);
+}
+//farklı yerlerde kullanacağım ortak dinamik flex box yapısı mxini
+@mixin flex(
+  $justifycontent,
+  $alignitems: center,
+  $direction: row,
+  $flexwrap: wrap) {
+  display: flex;
+  justify-content: $justifycontent;
+  align-items: $alignitems;
+  flex-direction: $direction;
+  flex-wrap: $flexwrap;
+}
+
+//farklı ekran boyutlarına göre mixin ile media sorgusu
+
+@mixin small {
+  @media (min-width:#{$screen-sm-min}) {
+    @content;
+  }
+}
+
+@mixin medium {
+  @media (min-width:#{$screen-md-min}) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media (min-width:#{$screen-lg-min}) {
+    @content;
+  }
+}
